@@ -41,7 +41,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      pageMounted: "Recommendation",
+      pageMounted: "Cart",
     };
   }
 
@@ -65,7 +65,7 @@ class App extends React.Component {
             <Back onClick={()=>this.goToPage('Cart')}>
               <ArrowBack />
             </Back>
-            <NavBarHeading>You may also like</NavBarHeading>
+            <NavBarHeading></NavBarHeading>
           </React.Fragment>
         );
         break;
