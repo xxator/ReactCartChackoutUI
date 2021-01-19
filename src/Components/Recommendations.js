@@ -104,7 +104,8 @@ const DisBubble = styled.div`
   left: 8rem;
   font-weight: 700;
   color: lightgreen;
-  text-shadow: 1px 1px lightgreen;
+  background: white;
+  border-radius: 1rem;
 `;
 
 const OrigPrice = styled.div`
@@ -127,7 +128,6 @@ const DisPrice = styled.div`
   margin-left: 0.25rem;
   align-self: center;
   color: lightgreen;
-  text-shadow: 1px 1px lightgreen;
 `;
 
 const AddBtn = styled.button`
@@ -186,7 +186,7 @@ class Recommendation extends React.Component {
   }
 
   async componentDidMount() {
-    axios.get('http://172.28.106.45:8080/vas/recommendations').then(res => {
+    axios.get('http://192.168.2.11:8080/vas/recommendations').then(res => {
       console.log('api res',res);
       this.setState({ sponsoredProducts: res.data.data });
     })
@@ -221,9 +221,9 @@ class Recommendation extends React.Component {
     let SponsoredProducts = this.state.sponsoredProducts.map((item) => {
       return (
         <SponsoredProduct>
-          <DisBubble>-10%</DisBubble>
+          <DisBubble>{`-${item.discountPercent}%`}</DisBubble>
           <ProductImg src={item.imageURL} />
-          <SponsoredPrice price={item.price} disPrice={item.price-10} />
+          <SponsoredPrice price={item.price} disPrice={item.discountedPrice} />
           <ProductName>{item.itemName}</ProductName>
           <AddBtn>Add</AddBtn>
         </SponsoredProduct>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch,Route } from 'react-router-dom';
 import App from './App';
-
+import Campaign from './Components/Campaign'
 
 class Routes extends React.Component {
     render() {
         return (<BrowserRouter>
             <Switch>
-                <Route path="/campaings">
-                    <p>campaings</p>
+                <Route path="/dashboard">
+                    <Campaign/>
                 </Route>
                 <Route exact path="/">
                     <App />
